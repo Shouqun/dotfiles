@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/private/Chromium/chromiumsrc-android-x86/src/content/shell/android/java/src/org'
+let g:netrw_dirhist_2='/private/Chromium/chromiumsrc-android-x86/src/content/shell/android/java/src/org/chromium'
+let g:netrw_dirhist_3='/private/Chromium/chromiumsrc-android-x86/src/content/shell/android/java/src/org/chromium/content_shell'
+let g:netrw_dirhist_4='/private/Chromium/chromiumsrc-android-arm/src/content'
+let g:netrw_dirhist_5='/private/Chromium/chromiumsrc/src/content/browser/geolocation'
+let g:netrw_dirhist_6='/var/www/pages'
+let g:netrw_dirhist_7='/private/Chromium/chromiumsrc/src/third_party/WebKit/Source/WebCore/loader'

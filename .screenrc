@@ -1,0 +1,9 @@
+#hardstatus alwayslastline
+hardstatus alwayslastline "%{.bw}%-w%{.rw}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %c%a"
+#hardstatut alwayslastline "%{= B}:%{= b}: %{= r}[ %{G}%H%{= r} ] %= %{=b b}%-w%{=rb db}%>%n %t%{-}%+w %=%{= r}[ %{G}%c %{M}%D %m-%d %{r}] %{= b}:%{B}:"
+
+#deflogin off
+# default shell is zsh
+#defshell /usr/bin/zsh
+# default starting dir is ~
+#chdir
