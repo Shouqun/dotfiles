@@ -7,8 +7,9 @@ autocmd FileType xml set tabstop=2 | set shiftwidth=2 | set expandtab
 autocmd FileType python set tabstop=2 | set shiftwidth=2 | set expandtab
 autocmd FileType qml set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType cpp,c set tabstop=2 | set shiftwidth=2 | set expandtab
-autocmd FileType java set tabstop=4 | set shiftwidth=4 | set expandtab 
+autocmd FileType java set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType make set tabstop=4 | set shiftwidth=4 | set noexpandtab
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " For ctags
@@ -35,6 +36,10 @@ set cursorline
 hi cursorline guibg=#333333
 hi CursorColumn guibg=#333333
 
+
+"set title
+set ruler
+"set showmode
 if has('cmdline_info')
     set ruler                   " show the ruler
     set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " a ruler on steroids
@@ -79,7 +84,5 @@ augroup END
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Show colored column at column 80
 highlight ColorColumn ctermbg=0
 set colorcolumn=80
