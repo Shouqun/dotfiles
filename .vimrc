@@ -78,3 +78,8 @@ augroup END
 "Show red blocks for whitespace
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Show colored column at column 80
+highlight ColorColumn ctermbg=0
+set colorcolumn=80
