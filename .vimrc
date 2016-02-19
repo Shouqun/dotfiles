@@ -11,14 +11,20 @@ autocmd FileType java set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType make set tabstop=4 | set shiftwidth=4 | set noexpandtab
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+syntax on
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " For ctags
-set tags=tags;
+set tags=.tags;
 set autochdir
 
 " For editing
 set autoindent
 set hlsearch
+set ignorecase
+set smartcase
 "set virtualedit=onemore
 set showmatch " show matching brackets/parenthesis
 set wildmenu
@@ -86,3 +92,73 @@ match WhitespaceEOL /\s\+$/
 
 highlight ColorColumn ctermbg=0
 set colorcolumn=80
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" Vundle configuration: https://github.com/VundleVim/Vundle.vim
+set nocompatible              " be iMproved, required
+filetype plugin on
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle
+" required!
+Plugin 'gmarik/Vundle.vim'
+
+" My bundles here:
+"
+" original repos on GitHub
+Plugin 'tpope/vim-fugitive'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'tpope/vim-rails.git'
+" vim-scripts repos
+Plugin 'L9'
+Plugin 'FuzzyFinder'
+" non-GitHub repos
+Plugin 'git://git.wincent.com/command-t.git'
+"Dash
+Plugin 'rizzatti/dash.vim'
+"Taglist
+Plugin 'taglist.vim'
+"Golang
+Plugin 'fatih/vim-go'
+"CScope
+Plugin 'cscope.vim'
+"JavaScript: https://github.com/pangloss/vim-javascript
+Plugin 'pangloss/vim-javascript'
+"YCM -- Disable by default because this slowdown the performance
+"Bundle 'Valloric/YouCompleteMe'
+"let g:ycm_global_ycm_extra_conf = '/Users/liushouqun/Code/Browser/chromiumsrc/src/tools/vim/chromium.ycm_extra_conf.py'
+"Markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'JamshedVesuna/vim-markdown-preview'
+
+Bundle 'uarun/vim-protobuf'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+filetype plugin on
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+
+"""""""""""""""""""""""""""""""""""""""""""
+" Per dir config
+"auto bufread /path/to/* so /path/to/.vimrc
+"au BufRead,BufEnter /path/to/*.{cc,h,py} set expandtab sts=2
+"au BufRead,BufEnter /path/to/WebKit/* set expandtab sts=4
