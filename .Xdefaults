@@ -38,8 +38,10 @@ URxvt*background: Black
 #URxvt*font: xft:DejaVu Sans Mono:pixelsize=14:antialias=true:hinting=true
 #URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=14:antialias=true:hinting=true
 # Use 'fc-list' to get the font list
-URxvt*font: xft:Ubuntu Mono:pixelsize=16,style=regular:antialias=true:hinting=true
-URxvt*boldFont: xft:Ubuntu Mono:bold:pixelsize=16,style=regular:antialias=true:hinting=true
+# Use 'cd fontsdir && sudo mkfontscale && sudo mkfontdir && sudo fc-cache -fv' to add fonts.
+URxvt*font: xft:Ubuntu Mono:pixelsize=18:style=regular:antialias=true:hinting=true,xft:DejaVu Sans Mon:pixelsize=18:antialias=true
+URxvt*boldFont: xft:Ubuntu Mono:bold:pixelsize=18:style=regular:antialias=true:hinting=true,xft:DejaVu Sans Mon:bold:pixelsize=18:antialias=true
+
 
 #
 # Xft: Liberation fonts
