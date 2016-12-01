@@ -2,16 +2,19 @@
 " For FileType settings
 autocmd FileType * set tabstop=4 | set shiftwidth=4
 autocmd FileType sh set tabstop=2 | set shiftwidth=2 | set expandtab
-autocmd FileType javascript set tabstop=2 | set shiftwidth=2 | set expandtab
+autocmd FileType javascript set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType xml set tabstop=2 | set shiftwidth=2 | set expandtab
 autocmd FileType python set tabstop=2 | set shiftwidth=2 | set expandtab
+autocmd FileType py set tabstop=2 | set shiftwidth=2 | set expandtab
 autocmd FileType qml set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType cpp,c set tabstop=2 | set shiftwidth=2 | set expandtab
 autocmd FileType java set tabstop=4 | set shiftwidth=4 | set expandtab
+autocmd FileType idl set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType make set tabstop=4 | set shiftwidth=4 | set noexpandtab
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html set tabstop=4 | set shiftwidth=4 | set expandtab |set omnifunc=htmlcomplete#CompleteTags
 
 autocmd BufNewFile,BufRead *.md set filetype=markdown
+au BufRead,BufEnter *.py set expandtab sts=2
 
 syntax on
 
@@ -23,8 +26,9 @@ set autochdir
 " For editing
 set autoindent
 set hlsearch
+"set smartcase
 set ignorecase
-set smartcase
+
 "set virtualedit=onemore
 set showmatch " show matching brackets/parenthesis
 set wildmenu
@@ -42,6 +46,9 @@ set cursorline
 hi cursorline guibg=#333333
 hi CursorColumn guibg=#333333
 
+"set backspace compatibility
+set nocompatible
+set backspace=indent,eol,start
 
 "set title
 set ruler
@@ -78,36 +85,29 @@ autocmd BufReadPost *
             \   exe "normal g'\"" |
             \ endif
 
-
-augroup filetype
-        au! BufRead,BufNewFile *.gyp    set filetype=python expandtab tabstop=2 shiftwidth=2
-        au! BufRead,BufNewFile *.gypi   set filetype=python expandtab tabstop=2 shiftwidth=2
-        au! BufRead,BufNewFile DEPS     set filetype=python expandtab tabstop=2 shiftwidth=2
-augroup END
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Show red blocks for whitespace
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 
-highlight ColorColumn ctermbg=0
+highlight ColorColumn ctermbg=LightCyan
 set colorcolumn=80
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Vundle configuration: https://github.com/VundleVim/Vundle.vim
 set nocompatible              " be iMproved, required
 filetype plugin on
+" required
+filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle
-" required!
-Plugin 'gmarik/Vundle.vim'
-
+"let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+"
 " My bundles here:
 "
 " original repos on GitHub
@@ -118,8 +118,7 @@ Plugin 'tpope/vim-rails.git'
 " vim-scripts repos
 Plugin 'L9'
 Plugin 'FuzzyFinder'
-" non-GitHub repos
-Plugin 'git://git.wincent.com/command-t.git'
+Plugin 'wincent/command-t'
 "Dash
 Plugin 'rizzatti/dash.vim'
 "Taglist
@@ -129,23 +128,30 @@ Plugin 'fatih/vim-go'
 "CScope
 Plugin 'cscope.vim'
 "JavaScript: https://github.com/pangloss/vim-javascript
-Plugin 'pangloss/vim-javascript'
-"YCM -- Disable by default because this slowdown the performance
-"Bundle 'Valloric/YouCompleteMe'
-"let g:ycm_global_ycm_extra_conf = '/Users/liushouqun/Code/Browser/chromiumsrc/src/tools/vim/chromium.ycm_extra_conf.py'
-"Markdown
+"Plugin 'pangloss/vim-javascript'
+"let g:javascript_plugin_jsdoc = 1
+"let g:javascript_plugin_ngdoc = 1
+"let g:javascript_plugin_flow = 1
+"set foldmethod=syntax
+""Markdown
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 
-Bundle 'uarun/vim-protobuf'
+"Java
+Plugin 'javacomplete'
+"YCM -- Disable by default because this slowdown the performance
+"Bundle 'Valloric/YouCompleteMe'
+"let g:ycm_global_ycm_extra_conf = '/Users/liushouqun/Code/Browser/chromiumsrc/src/tools/vim/chromium.ycm_extra_conf.py'
+
+" Chromium vim Plugins
+Plugin 'Shouqun/chromium-vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-filetype plugin on
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+filetype plugin on
 "
 " Brief help
 " :PluginList       - lists configured plugins
@@ -157,8 +163,25 @@ filetype plugin on
 " Put your non-Plugin stuff after this line
 
 
-"""""""""""""""""""""""""""""""""""""""""""
-" Per dir config
-"auto bufread /path/to/* so /path/to/.vimrc
-"au BufRead,BufEnter /path/to/*.{cc,h,py} set expandtab sts=2
-"au BufRead,BufEnter /path/to/WebKit/* set expandtab sts=4
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Custom settings:
+"Java -- javacomplete
+autocmd Filetype java setlocal omnifunc=javacomplete#Complete
+autocmd Filetype java map <leader>b :call javacomplete#GoToDefinition()<CR>
+" GN & mojom indent
+autocmd FileType gn set tabstop=2 | set shiftwidth=2 | set expandtab
+autocmd FileType mojom set tabstop=2 | set shiftwidth=2 | set expandtab
+" gyp indent
+augroup filetype
+        au! BufRead,BufNewFile *.gyp    set filetype=python expandtab tabstop=2 shiftwidth=2
+        au! BufRead,BufNewFile *.gypi   set filetype=python expandtab tabstop=2 shiftwidth=2
+        au! BufRead,BufNewFile DEPS     set filetype=python expandtab tabstop=2 shiftwidth=2
+augroup END
+" Golang:
+autocmd BufNewFile,BufRead *.go set filetype=go
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Per directory setting
+"au BufRead,BufEnter /task/chromium/src/third_party/WebKit/*.{h,cpp} set expandtab sts=4
+
+
