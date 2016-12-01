@@ -102,8 +102,27 @@ URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
 ######################### extensions ############################
+URxvt.perl-ext-common: default,matcher,tabbed,fullscreen
+
+# URL:
 URxvt.matcher.rend.0: Uline Bold fg5
-URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 URxvt.colorUL: #4682B4
+
+# TAB:
+#Key Description
+#Shift+Down	New tab
+#Shift+Left	Go to left tab
+#Shift+Right	Go to right tab
+#Ctrl+Left	Move tab to the left
+#Ctrl+Right	Move tab to the right
+#Ctrl+d	Close tab
+URxvt.tabbed.tabbar-fg: 7
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 0
+
+# fullscreen
+URxvt.keysym.F11: perl:fullscreen:switch
+
