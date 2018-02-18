@@ -95,6 +95,7 @@ set colorcolumn=80
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Vundle configuration: https://github.com/VundleVim/Vundle.vim
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set nocompatible              " be iMproved, required
 filetype plugin on
 " required
