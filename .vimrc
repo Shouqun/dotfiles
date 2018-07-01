@@ -128,22 +128,35 @@ Plugin 'taglist.vim'
 Plugin 'fatih/vim-go'
 "CScope
 Plugin 'cscope.vim'
+
 "JavaScript: https://github.com/pangloss/vim-javascript
 "Plugin 'pangloss/vim-javascript'
 "let g:javascript_plugin_jsdoc = 1
 "let g:javascript_plugin_ngdoc = 1
 "let g:javascript_plugin_flow = 1
 "set foldmethod=syntax
-""Markdown
+
+"Markdown
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'JamshedVesuna/vim-markdown-preview'
 
 "Java
 Plugin 'javacomplete'
+
 "YCM -- Disable by default because this slowdown the performance
 "Bundle 'Valloric/YouCompleteMe'
 "let g:ycm_global_ycm_extra_conf = '/Users/liushouqun/Code/Browser/chromiumsrc/src/tools/vim/chromium.ycm_extra_conf.py'
+
+" File explorer
+Plugin 'tpope/vim-pathogen'
+Plugin 'scrooloose/nerdtree'
+" CTRL+n to toogle file tree, and exit when only tree view left on editing.
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" Dart
+Plugin 'dart-lang/dart-vim-plugin'
 
 " Chromium vim Plugins
 Plugin 'Shouqun/chromium-vim'
