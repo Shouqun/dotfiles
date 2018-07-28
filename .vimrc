@@ -13,8 +13,11 @@ autocmd FileType idl set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType make set tabstop=4 | set shiftwidth=4 | set noexpandtab
 autocmd FileType html set tabstop=4 | set shiftwidth=4 | set expandtab |set omnifunc=htmlcomplete#CompleteTags
 
+autocmd BufNewFile,BufRead *.mm set filetype=objc
+autocmd BufNewFile,BufRead *.mm set tabstop=2 | set shiftwidth=2 | set expandtab
+
 autocmd BufNewFile,BufRead *.md set filetype=markdown
-au BufRead,BufEnter *.py set expandtab sts=2
+autocmd BufRead,BufEnter *.py set expandtab sts=2
 
 syntax on
 
@@ -140,6 +143,9 @@ Plugin 'cscope.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'JamshedVesuna/vim-markdown-preview'
+" Require install: brew install markdown grip
+let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_github=1
 
 "Java
 Plugin 'javacomplete'
