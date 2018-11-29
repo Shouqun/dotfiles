@@ -164,6 +164,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Dart
 Plugin 'dart-lang/dart-vim-plugin'
 
+" ACP
+Plugin 'vim-scripts/AutoComplPop'
+
+" cppcomplete
+Plugin 'vim-scripts/cppcomplete'
+
 " Chromium vim Plugins
 Plugin 'Shouqun/chromium-vim'
 
