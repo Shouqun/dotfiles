@@ -1,8 +1,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " For FileType settings
-autocmd FileType * set tabstop=4 | set shiftwidth=4
+autocmd FileType * set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType sh set tabstop=2 | set shiftwidth=2 | set expandtab
-autocmd FileType javascript set tabstop=4 | set shiftwidth=4 | set expandtab
+autocmd FileType javascript set tabstop=2 | set shiftwidth=2 | set expandtab
 autocmd FileType xml set tabstop=2 | set shiftwidth=2 | set expandtab
 autocmd FileType python set tabstop=2 | set shiftwidth=2 | set expandtab
 autocmd FileType py set tabstop=2 | set shiftwidth=2 | set expandtab
@@ -12,12 +12,14 @@ autocmd FileType java set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType idl set tabstop=4 | set shiftwidth=4 | set expandtab
 autocmd FileType make set tabstop=4 | set shiftwidth=4 | set noexpandtab
 autocmd FileType html set tabstop=4 | set shiftwidth=4 | set expandtab |set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType objc set tabstop=2 | set shiftwidth=2 | set expandtab
+autocmd FileType json set tabstop=2 | set shiftwidth=2 | set expandtab
 
 autocmd BufNewFile,BufRead *.mm set filetype=objc
 autocmd BufNewFile,BufRead *.mm set tabstop=2 | set shiftwidth=2 | set expandtab
 
 autocmd BufNewFile,BufRead *.md set filetype=markdown
-autocmd BufRead,BufEnter *.py set expandtab sts=2
+au BufRead,BufEnter *.py set expandtab sts=2
 
 syntax on
 
@@ -96,6 +98,9 @@ match WhitespaceEOL /\s\+$/
 highlight ColorColumn ctermbg=LightCyan
 set colorcolumn=80
 
+autocmd FileType java set colorcolumn=100
+autocmd BufNewFile,BufRead *.mm set colorcolumn=100
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "" Vundle configuration: https://github.com/VundleVim/Vundle.vim
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -131,6 +136,8 @@ Plugin 'taglist.vim'
 Plugin 'fatih/vim-go'
 "CScope
 Plugin 'cscope.vim'
+"glsl
+Plugin 'tikhomirov/vim-glsl'
 
 "JavaScript: https://github.com/pangloss/vim-javascript
 "Plugin 'pangloss/vim-javascript'
@@ -149,6 +156,9 @@ let vim_markdown_preview_github=1
 
 "Java
 Plugin 'javacomplete'
+
+"Kotlin
+Plugin 'udalov/kotlin-vim'
 
 "YCM -- Disable by default because this slowdown the performance
 "Bundle 'Valloric/YouCompleteMe'
@@ -169,6 +179,11 @@ Plugin 'vim-scripts/AutoComplPop'
 
 " cppcomplete
 Plugin 'vim-scripts/cppcomplete'
+
+" Language Server Protocal(LSP) Plugin: https://github.com/neoclide/coc.nvim
+"   * Install yarn: `curl --compressed -o- -L https://yarnpkg.com/install.sh | bash`
+"   * Install vim-node-rpc ` yarn global add vim-node-rpc`
+Plugin 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " Chromium vim Plugins
 Plugin 'Shouqun/chromium-vim'
@@ -210,4 +225,8 @@ autocmd BufNewFile,BufRead *.go set filetype=go
 " Per directory setting
 "au BufRead,BufEnter /task/chromium/src/third_party/WebKit/*.{h,cpp} set expandtab sts=4
 
-
+if has("gui_running")
+  set guifont=Menlo:h16
+  set hlsearch
+  colorscheme elflord
+endif
