@@ -24,6 +24,10 @@ au BufRead,BufEnter *.py set expandtab sts=2
 syntax on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set t_Co=256     " 256-color terminal
+set lazyredraw   " save performacne
+set visualbell   " no sound effects
+
 " For ctags
 set tags=.tags;
 set autochdir
@@ -45,6 +49,11 @@ set foldmethod=indent   "fold based on indent
 set foldnestmax=10      "deepest fold is 10 levels
 set nofoldenable        "dont fold by default
 set foldlevel=1         "this is just what i use
+
+" Set no backup & swap file.
+set nobackup
+set nowritebackup
+set noswapfile  " Disable swap file.
 
 "set spell
 set cursorline
@@ -82,6 +91,7 @@ let g:tlist_javascript_settings = 'javascript;f:function;c:class;m:method;p:prop
 set laststatus=2
 set statusline=%F%m%r%h%w\ [%l,%c]\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set number
+"set relativenumber  " show line number relative to other lines.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "record the last position the file open
