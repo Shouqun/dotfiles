@@ -21,6 +21,9 @@ autocmd BufNewFile,BufRead *.mm set tabstop=2 | set shiftwidth=2 | set expandtab
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 au BufRead,BufEnter *.py set expandtab sts=2
 
+" Auto trim tailing whitespaces when saving file.
+autocmd FileType c,cpp,java,javascript,objc,sh,python autocmd BufWritePre <buffer> %s/\s\+$//e
+
 syntax on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
