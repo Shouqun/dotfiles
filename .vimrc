@@ -201,6 +201,9 @@ Plugin 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 " Chromium vim Plugins
 Plugin 'Shouqun/chromium-vim'
 
+" Official GN plugin: https://gn.googlesource.com/gn/+/refs/heads/master/misc/vim/
+Plugin 'https://gn.googlesource.com/gn', { 'rtp': 'misc/vim' }
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
