@@ -151,6 +151,8 @@ Plugin 'fatih/vim-go'
 Plugin 'cscope.vim'
 "glsl
 Plugin 'tikhomirov/vim-glsl'
+"json5
+Plugin 'GutenYe/json5.vim'
 
 "JavaScript: https://github.com/pangloss/vim-javascript
 "Plugin 'pangloss/vim-javascript'
@@ -174,8 +176,12 @@ Plugin 'javacomplete'
 Plugin 'udalov/kotlin-vim'
 
 "YCM -- Disable by default because this slowdown the performance
-"Bundle 'Valloric/YouCompleteMe'
-"let g:ycm_global_ycm_extra_conf = '/Users/liushouqun/Code/Browser/chromiumsrc/src/tools/vim/chromium.ycm_extra_conf.py'
+" https://github.com/ycm-core/YouCompleteMe
+"  Install:
+"    - brew install cmake macvim python mono go nodejs
+"    - cd ~/.vim/bundle/YouCompleteMe
+"    - python3 install.py --all
+Plugin 'ycm-core/YouCompleteMe'
 
 " File explorer
 Plugin 'tpope/vim-pathogen'
